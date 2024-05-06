@@ -12,7 +12,11 @@ class TemplateMod: ClientModInitializer {
 
     private fun createKeybinds() {
         listOf(
-        KeyBinding("key.templatemod.example", GLFW.GLFW_KEY_G, "category.templatemod.example")
+            KEY_EXAMPLE
         ).forEach { KeyBindingHelper.registerKeyBinding(it) }
+    }
+
+    companion object {
+        val KEY_EXAMPLE = KeyBinding("key.templatemod.example", GLFW.GLFW_KEY_G, "category.templatemod.example")
     }
 }
