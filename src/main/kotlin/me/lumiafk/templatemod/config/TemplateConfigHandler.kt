@@ -24,7 +24,7 @@ object TemplateConfigHandler {
 
     fun getDefaultConfig() = HANDLER.defaults()
 
-    fun createGui(parent: Screen) = YetAnotherConfigLib.createBuilder()
+    fun createGui(parent: Screen?): Screen = YetAnotherConfigLib.createBuilder()
         .title("Template Mod Config".text)
         .handleCategories()
         .save(this::save)
