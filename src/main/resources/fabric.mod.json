@@ -8,7 +8,7 @@
     "Lumiafk"
   ],
   "contact": {
-    "repo": "https://github.com/Rime/NoEnchantGlint"
+    "repo": "https://github.com/Emirlol/TemplateMod"
   },
   "license": "All-Rights-Reserved",
   "environment": "client",
@@ -20,7 +20,7 @@
         "adapter": "kotlin"
       }
     ],
-    "modmenu": [{ "value": "com.example.mod.ExampleModMenuApiImpl" }]
+    "modmenu": [ "me.lumiafk.templatemod.modmenu.ModMenuApiImpl" ]
   },
   "mixins": [
     "templatemod.mixins.json"

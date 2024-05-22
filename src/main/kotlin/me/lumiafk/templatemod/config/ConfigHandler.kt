@@ -4,14 +4,15 @@ import dev.isxander.yacl3.api.ConfigCategory
 import dev.isxander.yacl3.api.YetAnotherConfigLib
 import dev.isxander.yacl3.config.v2.api.ConfigClassHandler
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder
+import me.lumiafk.templatemod.TemplateMod
 import me.lumiafk.templatemod.Util.text
 import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.client.gui.screen.Screen
 
-object TemplateConfigHandler {
-    private val HANDLER = ConfigClassHandler.createBuilder(TemplateConfig::class.java).serializer {
+object ConfigHandler {
+    private val HANDLER = ConfigClassHandler.createBuilder(Config::class.java).serializer {
         GsonConfigSerializerBuilder.create(it)
-            .setPath(FabricLoader.getInstance().configDir.resolve("templateMod/config.json5"))
+            .setPath(FabricLoader.getInstance().configDir.resolve("TemplateMod/config.json5"))
             .setJson5(true)
             .build()
     }.build()
@@ -25,12 +26,11 @@ object TemplateConfigHandler {
     fun getDefaultConfig() = HANDLER.defaults()
 
     fun createGui(parent: Screen?): Screen = YetAnotherConfigLib.createBuilder()
-        .title("Template Mod Config".text)
+        .title("${TemplateMod.NAME} Config".text)
         .handleCategories()
         .save(this::save)
         .build()
         .generateScreen(parent)
-
 
     private fun YetAnotherConfigLib.Builder.handleCategories(): YetAnotherConfigLib.Builder = this.categories(
         listOf(
@@ -39,5 +39,4 @@ object TemplateConfigHandler {
                 .build()
         )
     )
-
 }
