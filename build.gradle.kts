@@ -44,3 +44,9 @@ tasks {
     }
 }
 
+idea {
+    module {
+        excludeDirs.addAll(listOf(file("run"), file(".kotlin")))
+    }
+}
+
