@@ -35,7 +35,8 @@ tasks {
                 "name" to project.property("mod_name"),
                 "mod_id" to project.property("mod_id"),
                 "fabric_kotlin_version" to project.property("fabric_kotlin_version"),
-                "modmenu_version" to project.property("modmenu_version")
+                "modmenu_version" to project.property("modmenu_version"),
+                "yacl_version" to project.property("yacl_version")
             )
         )
     }
