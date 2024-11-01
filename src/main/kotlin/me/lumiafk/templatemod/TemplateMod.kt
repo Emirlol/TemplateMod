@@ -9,9 +9,10 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
 import net.minecraft.client.option.KeyBinding
 import net.minecraft.client.util.InputUtil
 
-class TemplateMod : ClientModInitializer {
+object TemplateMod : ClientModInitializer {
 	override fun onInitializeClient() {
-		check(ConfigHandler.load()) { "Failed to load config." }
+		@Suppress("UnstableApiUsage")
+		check(ConfigHandler.loadFromFile()) { "Failed to load config." }
 		ClientCommandRegistrationCallback.EVENT.register { dispatcher, _ ->
 			dispatcher.register(
 				literal(NAMESPACE)
@@ -35,9 +36,7 @@ class TemplateMod : ClientModInitializer {
 		).forEach { KeyBindingHelper.registerKeyBinding(it) }
 	}
 
-	companion object {
-        const val NAME = "Template Mod"
-        const val NAMESPACE = "templatemod"
-        val KEY_EXAMPLE = KeyBinding("key.$NAMESPACE.example", InputUtil.GLFW_KEY_G, "category.$NAMESPACE.example")
-	}
+	const val NAME = "Template Mod"
+	const val NAMESPACE = "templatemod"
+	val KEY_EXAMPLE = KeyBinding("key.$NAMESPACE.example", InputUtil.GLFW_KEY_G, "category.$NAMESPACE.example")
 }

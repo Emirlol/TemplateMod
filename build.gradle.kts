@@ -1,6 +1,6 @@
 plugins {
-	id("fabric-loom") version "1.7-SNAPSHOT"
-	kotlin("jvm") version "2.0.0"
+	id("fabric-loom") version "1.8-SNAPSHOT"
+	kotlin("jvm") version "2.0.21"
 }
 
 repositories {
@@ -68,10 +68,3 @@ tasks {
 kotlin {
 	jvmToolchain(21)
 }
-
-idea {
-	module {
-		excludeDirs.addAll(listOf(file("run"), file(".kotlin")))
-	}
-}
-
