@@ -16,7 +16,6 @@
     "client": [
       {
         "value": "me.lumiafk.templatemod.TemplateMod",
-        "side": "client",
         "adapter": "kotlin"
       }
     ],
