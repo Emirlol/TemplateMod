@@ -11,8 +11,7 @@ import net.minecraft.client.util.InputUtil
 
 object TemplateMod : ClientModInitializer {
 	override fun onInitializeClient() {
-		@Suppress("UnstableApiUsage")
-		check(ConfigHandler.loadFromFile()) { "Failed to load config." }
+		ConfigHandler.load()
 		ClientCommandRegistrationCallback.EVENT.register { dispatcher, _ ->
 			dispatcher.register(
 				literal(NAMESPACE)

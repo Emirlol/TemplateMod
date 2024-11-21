@@ -1,13 +1,13 @@
 package me.lumiafk.templatemod.config
 
-import com.mojang.serialization.Codec
-import dev.isxander.yacl3.api.controller.IntegerSliderControllerBuilder
-import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder
+import dev.isxander.yacl3.api.OptionEventListener
 import dev.isxander.yacl3.config.v3.JsonFileCodecConfig
 import dev.isxander.yacl3.config.v3.register
 import dev.isxander.yacl3.dsl.YetAnotherConfigLib
 import dev.isxander.yacl3.dsl.binding
 import dev.isxander.yacl3.dsl.controller
+import dev.isxander.yacl3.dsl.slider
+import dev.isxander.yacl3.dsl.tickBox
 import me.lumiafk.templatemod.TemplateMod
 import me.lumiafk.templatemod.Util.text
 import net.fabricmc.loader.api.FabricLoader
@@ -15,11 +15,26 @@ import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.sound.PositionedSoundInstance
 import net.minecraft.sound.SoundEvents
+import kotlin.io.path.createFile
+import kotlin.io.path.createParentDirectories
+import kotlin.io.path.notExists
+
+val configPath = FabricLoader.getInstance().configDir.resolve(TemplateMod.NAMESPACE)
+const val configFileName = "config.json"
 
 @Suppress("UnstableApiUsage")
-object ConfigHandler : JsonFileCodecConfig<ConfigHandler>(FabricLoader.getInstance().configDir.resolve("TemplateMod/config.json5")) {
-	val exampleBoolean by register(false, Codec.BOOL)
-	val exampleInt by register(0, Codec.INT)
+object ConfigHandler : JsonFileCodecConfig<ConfigHandler>(configPath.resolve(configFileName)) {
+	val exampleBoolean by register(false, BOOL)
+	val exampleInt by register(0, INT)
+
+	fun load() {
+		val path = configPath.resolve(configFileName)
+		if (path.notExists()) {
+			path.createParentDirectories()
+			path.createFile()
+		}
+		loadFromFile()
+	}
 
 	fun createGui(parent: Screen?): Screen = YetAnotherConfigLib(TemplateMod.NAMESPACE) {
 		save(::saveToFile)
@@ -35,18 +50,21 @@ object ConfigHandler : JsonFileCodecConfig<ConfigHandler>(FabricLoader.getInstan
 			}
 			val exampleGroup by groups.registering {
 				name("Example Group".text)
-				val exampleSlider by options.registering {
-					controller(IntegerSliderControllerBuilder::create) {
-						step(1)
-						range(0, 69)
-					}
+				val exampleSlider = options.register(exampleInt) {
+					name("Example Slider".text)
+					controller = slider(0..69, 1)
 					binding = exampleInt.asBinding()
 				}
-				val exampleCheckbox by options.registering {
-					controller(TickBoxControllerBuilder::create)
+				val exampleCheckbox = options.register(exampleBoolean) {
+					name("Example Checkbox".text)
+					controller = tickBox()
 					binding = exampleBoolean.asBinding()
+					addListener { opt, event ->
+						if (event == OptionEventListener.Event.STATE_CHANGE) {
+							exampleSlider.setAvailable(opt.pendingValue())
+						}
+					}
 				}
-
 			}
 		}
 
