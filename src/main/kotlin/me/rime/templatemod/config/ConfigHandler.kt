@@ -63,6 +63,5 @@ object ConfigHandler : JsonFileCodecConfig<ConfigHandler>(configPath.resolve(con
 				}
 			}
 		}
-
 	}.generateScreen(parent)
 }
