@@ -2,14 +2,14 @@ package me.rime.templatemod
 
 import me.rime.rimelib.util.register
 import me.rime.templatemod.config.ConfigHandler
-import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
 import net.minecraft.client.option.KeyBinding
 import net.minecraft.client.util.InputUtil
 
-object TemplateMod : ClientModInitializer {
-	override fun onInitializeClient() {
+object TemplateMod {
+	@Deprecated("This method will be called by the fabric loader, don't call it manually.", level = DeprecationLevel.ERROR)
+	fun init() {
 		ConfigHandler.load()
 		ClientCommandRegistrationCallback.EVENT.register(NAMESPACE) {
 			literal("config") {

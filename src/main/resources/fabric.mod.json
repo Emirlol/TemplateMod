@@ -10,7 +10,7 @@
 	"entrypoints": {
 		"client": [
 			{
-				"value": "me.rime.templatemod.TemplateMod",
+				"value": "me.rime.templatemod.TemplateMod::init",
 				"adapter": "kotlin"
 			}
 		],
