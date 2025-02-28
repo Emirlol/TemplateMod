@@ -1,15 +1,10 @@
 {
 	"schemaVersion": 1,
-	"id": "${mod_id}",
+	"id": "templatemod",
 	"version": "${version}",
-	"name": "${name}",
-	"description": "$DESCRIPTION$",
-	"authors": [
-		"Rime"
-	],
-	"contact": {
-
-	},
+	"name": "Template Mod",
+	"description": "Description.",
+	"authors": [ "Rime" ],
 	"license": "All-Rights-Reserved",
 	"environment": "client",
 	"entrypoints": {

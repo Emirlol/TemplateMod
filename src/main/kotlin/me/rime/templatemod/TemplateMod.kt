@@ -35,7 +35,7 @@ object TemplateMod : ClientModInitializer {
 		).forEach { KeyBindingHelper.registerKeyBinding(it) }
 	}
 
-	const val NAME = "$MOD_NAME$"
+	const val NAME = "Template Mod"
 	const val NAMESPACE = "templatemod"
 	val KEY_EXAMPLE = KeyBinding("key.templatemod.example", InputUtil.GLFW_KEY_G, "category.templatemod.example")
 }

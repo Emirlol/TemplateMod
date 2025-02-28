@@ -4,8 +4,8 @@ import dev.isxander.yacl3.api.OptionEventListener
 import dev.isxander.yacl3.config.v3.JsonFileCodecConfig
 import dev.isxander.yacl3.config.v3.register
 import dev.isxander.yacl3.dsl.*
+import me.rime.rimelib.util.text
 import me.rime.templatemod.TemplateMod
-import me.rime.templatemod.Util.text
 import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.Screen

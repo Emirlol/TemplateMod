@@ -35,8 +35,6 @@ dependencies {
 tasks {
 	processResources {
 		val props = mapOf(
-			"name" to modName,
-			"mod_id" to modId,
 			"version" to version,
 			"minecraft_version" to libs.versions.minecraft.get(),
 			"loader_version" to libs.versions.fabricLoader.get(),
@@ -47,13 +45,6 @@ tasks {
 		inputs.properties(props)
 		filesMatching("fabric.mod.json") {
 			expand(props)
-		}
-		filesMatching("assets/$modId/lang/*.json") {
-			expand(
-				mapOf(
-					"namespace" to modId
-				)
-			)
 		}
 	}
 	jar {
