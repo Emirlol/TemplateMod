@@ -1,8 +1,8 @@
-package me.lumiafk.templatemod.modmenu
+package me.rime.templatemod.modmenu
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory
 import com.terraformersmc.modmenu.api.ModMenuApi
-import me.lumiafk.templatemod.config.ConfigHandler
+import me.rime.templatemod.config.ConfigHandler
 
 class ModMenuApiImpl: ModMenuApi {
     override fun getModConfigScreenFactory() = ConfigScreenFactory(ConfigHandler::createGui)

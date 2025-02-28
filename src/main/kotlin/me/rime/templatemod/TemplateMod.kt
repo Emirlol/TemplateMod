@@ -1,7 +1,7 @@
-package me.lumiafk.templatemod
+package me.rime.templatemod
 
 import com.mojang.brigadier.Command
-import me.lumiafk.templatemod.config.ConfigHandler
+import me.rime.templatemod.config.ConfigHandler
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback
@@ -35,7 +35,7 @@ object TemplateMod : ClientModInitializer {
 		).forEach { KeyBindingHelper.registerKeyBinding(it) }
 	}
 
-	const val NAME = "Template Mod"
+	const val NAME = "$MOD_NAME$"
 	const val NAMESPACE = "templatemod"
-	val KEY_EXAMPLE = KeyBinding("key.$NAMESPACE.example", InputUtil.GLFW_KEY_G, "category.$NAMESPACE.example")
+	val KEY_EXAMPLE = KeyBinding("key.templatemod.example", InputUtil.GLFW_KEY_G, "category.templatemod.example")
 }

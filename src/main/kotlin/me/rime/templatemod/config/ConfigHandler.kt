@@ -1,15 +1,11 @@
-package me.lumiafk.templatemod.config
+package me.rime.templatemod.config
 
 import dev.isxander.yacl3.api.OptionEventListener
 import dev.isxander.yacl3.config.v3.JsonFileCodecConfig
 import dev.isxander.yacl3.config.v3.register
-import dev.isxander.yacl3.dsl.YetAnotherConfigLib
-import dev.isxander.yacl3.dsl.binding
-import dev.isxander.yacl3.dsl.controller
-import dev.isxander.yacl3.dsl.slider
-import dev.isxander.yacl3.dsl.tickBox
-import me.lumiafk.templatemod.TemplateMod
-import me.lumiafk.templatemod.Util.text
+import dev.isxander.yacl3.dsl.*
+import me.rime.templatemod.TemplateMod
+import me.rime.templatemod.Util.text
 import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.Screen

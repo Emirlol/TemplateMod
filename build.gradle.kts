@@ -20,9 +20,8 @@ group = property("maven_group") as String
 version = "${libs.versions.modVersion.get()}+${libs.versions.minecraft.get()}"
 
 dependencies {
-	// To change the versions, see the gradle.properties file
 	minecraft(libs.minecraft)
-	mappings(libs.yarn)
+	mappings("net.fabricmc:yarn:${libs.versions.yarnMappings.get()}:v2") // Gradle version catalogue doesn't like the :v2 suffix
 	modImplementation(libs.fabricLoader)
 
 	modImplementation(libs.fabricApi)
