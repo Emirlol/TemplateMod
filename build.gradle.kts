@@ -6,6 +6,7 @@ plugins {
 
 repositories {
 	mavenCentral()
+	mavenLocal()
 	maven("https://maven.isxander.dev/releases") {
 		name = "Xander Maven"
 	}
@@ -28,6 +29,7 @@ dependencies {
 	modImplementation(libs.fabricLanguageKotlin)
 	modImplementation(libs.yacl)
 	modImplementation(libs.modMenu)
+	include(modImplementation(libs.rimelib.get())!!) // Loom doesn't like `Provider` types, so we have to `.get()` it
 }
 
 tasks {
