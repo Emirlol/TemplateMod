@@ -1,7 +1,7 @@
 [versions]
 modVersion = "1.0"
 
-# Required stuff, https://modmuss50.me/fabric.html
+# Required stuff, https://fabricmc.net/develop/
 minecraft = "1.21.4"
 yarnMappings = "1.21.4+build.8"
 fabricLoader = "0.16.10"
