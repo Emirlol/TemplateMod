@@ -3,7 +3,10 @@ package me.rime.templatemod.config
 import dev.isxander.yacl3.api.OptionEventListener
 import dev.isxander.yacl3.config.v3.JsonFileCodecConfig
 import dev.isxander.yacl3.config.v3.register
-import dev.isxander.yacl3.dsl.*
+import dev.isxander.yacl3.dsl.YetAnotherConfigLib
+import dev.isxander.yacl3.dsl.controller
+import dev.isxander.yacl3.dsl.slider
+import dev.isxander.yacl3.dsl.tickBox
 import me.rime.rimelib.util.text
 import me.rime.templatemod.TemplateMod
 import net.fabricmc.loader.api.FabricLoader
@@ -49,12 +52,10 @@ object ConfigHandler : JsonFileCodecConfig<ConfigHandler>(configPath.resolve(con
 				val exampleSlider = options.register(exampleInt) {
 					name("Example Slider".text)
 					controller = slider(0..69, 1)
-					binding = exampleInt.asBinding()
 				}
 				val exampleCheckbox = options.register(exampleBoolean) {
 					name("Example Checkbox".text)
 					controller = tickBox()
-					binding = exampleBoolean.asBinding()
 					addListener { opt, event ->
 						if (event == OptionEventListener.Event.STATE_CHANGE) {
 							exampleSlider.setAvailable(opt.pendingValue())
