@@ -14,11 +14,12 @@ import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.sound.PositionedSoundInstance
 import net.minecraft.sound.SoundEvents
+import java.nio.file.Path
 import kotlin.io.path.createFile
 import kotlin.io.path.createParentDirectories
 import kotlin.io.path.notExists
 
-val configPath = FabricLoader.getInstance().configDir.resolve(TemplateMod.NAMESPACE)
+val configPath: Path = FabricLoader.getInstance().configDir.resolve(TemplateMod.NAMESPACE)
 const val configFileName = "config.json"
 
 @Suppress("UnstableApiUsage")
