@@ -2,6 +2,7 @@ plugins {
 	alias(libs.plugins.loom)
 	alias(libs.plugins.kotlin)
 	alias(libs.plugins.modPublish)
+	alias(libs.plugins.kotlinxSerialization)
 }
 
 repositories {
