@@ -31,6 +31,7 @@ dependencies {
 	modImplementation(libs.yacl)
 	modImplementation(libs.modMenu)
 	include(modImplementation(libs.rimelib.get())!!) // Loom doesn't like `Provider` types, so we have to `.get()` it
+	include(implementation(libs.pods4k.get())!!)
 }
 
 tasks {

@@ -18,6 +18,7 @@ modPublish = "0.8.4" # https://github.com/modmuss50/mod-publish-plugin
 modMenu = "13.0.3" # https://github.com/TerraformersMC/ModMenu/releases
 yacl = "3.6.5+1.21.4-fabric" # https://modrinth.com/mod/yacl/versions
 rimelib = "1.0-SNAPSHOT+1.21.4"
+pods4k = "0.7.0" # https://github.com/daniel-rusu/pods4k/releases
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
@@ -27,6 +28,7 @@ fabricApi = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabr
 modMenu = { module = "com.terraformersmc:modmenu", version.ref = "modMenu" }
 yacl = { module = "dev.isxander:yet-another-config-lib", version.ref = "yacl" }
 rimelib = { module = "me.rime:rimelib", version.ref = "rimelib" }
+pods4k = { module = "com.danrusu.pods4k:pods4k", version.ref = "pods4k" }
 
 [bundles]
 
