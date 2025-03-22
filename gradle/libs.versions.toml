@@ -5,18 +5,18 @@ modVersion = "1.0"
 minecraft = "1.21.4"
 yarnMappings = "1.21.4+build.8"
 fabricLoader = "0.16.10"
-fabricApi = "0.118.0+1.21.4"
+fabricApi = "0.119.2+1.21.4"
 
-fabricLanguageKotlin = "1.13.1+kotlin.2.1.10" # https://github.com/FabricMC/fabric-language-kotlin/releases
+fabricLanguageKotlin = "1.13.2+kotlin.2.1.20" # https://github.com/FabricMC/fabric-language-kotlin/releases
 
 # Plugins
-kotlin = "2.1.10" # Match this to the one above
+kotlin = "2.1.20" # Match this to the one above
 loom = "1.10-SNAPSHOT" # https://github.com/FabricMC/fabric-loom/releases
 modPublish = "0.8.4" # https://github.com/modmuss50/mod-publish-plugin
 
 # Other dependencies
-modMenu = "13.0.2" # https://github.com/TerraformersMC/ModMenu/releases
-yacl = "3.6.2+1.21.4-fabric" # https://modrinth.com/mod/yacl/versions
+modMenu = "13.0.3" # https://github.com/TerraformersMC/ModMenu/releases
+yacl = "3.6.5+1.21.4-fabric" # https://modrinth.com/mod/yacl/versions
 rimelib = "1.0-SNAPSHOT+1.21.4"
 
 [libraries]
