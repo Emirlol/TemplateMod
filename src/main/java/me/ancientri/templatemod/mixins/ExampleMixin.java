@@ -1,4 +1,4 @@
-package me.rime.templatemod.mixins;
+package me.ancientri.templatemod.mixins;
 
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;

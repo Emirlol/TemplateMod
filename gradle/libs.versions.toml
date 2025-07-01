@@ -2,33 +2,43 @@
 modVersion = "1.0"
 
 # Required stuff, https://fabricmc.net/develop/
-minecraft = "1.21.4"
-yarnMappings = "1.21.4+build.8"
-fabricLoader = "0.16.10"
-fabricApi = "0.119.2+1.21.4"
+minecraft = "1.21.7"
+yarnMappings = "1.21.7+build.1"
+fabricLoader = "0.16.14"
+fabricApi = "0.128.1+1.21.7"
 
-fabricLanguageKotlin = "1.13.2+kotlin.2.1.20" # https://github.com/FabricMC/fabric-language-kotlin/releases
+fabricLanguageKotlin = "1.13.4+kotlin.2.2.0" # https://github.com/FabricMC/fabric-language-kotlin/releases
 
 # Plugins
-kotlin = "2.1.20" # Match this to the one above
+kotlin = "2.2.0" # Match this to the one above
 loom = "1.10-SNAPSHOT" # https://github.com/FabricMC/fabric-loom/releases
 modPublish = "0.8.4" # https://github.com/modmuss50/mod-publish-plugin
+ksp = "2.1.20-1.0.32" #https://github.com/google/ksp/releases
 
 # Other dependencies
-modMenu = "13.0.3" # https://github.com/TerraformersMC/ModMenu/releases
-yacl = "3.6.5+1.21.4-fabric" # https://modrinth.com/mod/yacl/versions
-rimelib = "1.0-SNAPSHOT+1.21.4"
+modMenu = "15.0.0-beta.3" # https://github.com/TerraformersMC/ModMenu/releases
+yacl = "3.7.1+1.21.6-fabric" # https://modrinth.com/mod/yacl/versions
 pods4k = "0.7.0" # https://github.com/daniel-rusu/pods4k/releases
+rimelib = "2.1.4+1.21.6" # https://modrinth.com/mod/rimelib/versions
+
+config = "1.0.2"
+init = "1.0.1"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
+yarn = { module = "net.fabricmc:yarn", version.ref = "yarnMappings" }
 fabricLoader = { module = "net.fabricmc:fabric-loader", version.ref = "fabricLoader" }
 fabricLanguageKotlin = { module = "net.fabricmc:fabric-language-kotlin", version.ref = "fabricLanguageKotlin" }
 fabricApi = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabricApi" }
 modMenu = { module = "com.terraformersmc:modmenu", version.ref = "modMenu" }
 yacl = { module = "dev.isxander:yet-another-config-lib", version.ref = "yacl" }
-rimelib = { module = "me.rime:rimelib", version.ref = "rimelib" }
+rimelib = { module = "me.ancientri:rimelib", version.ref = "rimelib" }
 pods4k = { module = "com.danrusu.pods4k:pods4k", version.ref = "pods4k" }
+
+init-processor = { module = "me.ancientri.symbols:init-processor", version.ref = "init" }
+init-annotation = { module = "me.ancientri.symbols:init-annotation", version.ref = "init" }
+config-processor = { module = "me.ancientri.symbols:config-processor", version.ref = "config" }
+config-annotation = { module = "me.ancientri.symbols:config-annotation", version.ref = "config" }
 
 [bundles]
 
@@ -38,3 +48,4 @@ kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 loom = { id = "fabric-loom", version.ref = "loom" }
 modPublish = { id = "me.modmuss50.mod-publish-plugin", version.ref = "modPublish"}
 kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

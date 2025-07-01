@@ -3,16 +3,19 @@ plugins {
 	alias(libs.plugins.kotlin)
 	alias(libs.plugins.modPublish)
 	alias(libs.plugins.kotlinxSerialization)
+	alias(libs.plugins.ksp)
 }
 
 repositories {
 	mavenCentral()
-	mavenLocal()
 	maven("https://maven.isxander.dev/releases") {
 		name = "Xander Maven"
 	}
 	maven("https://maven.terraformersmc.com/releases") {
 		name = "Terraformers"
+	}
+	maven("https://ancientri.me/maven/releases") {
+		name = "AncientRime"
 	}
 }
 
@@ -23,7 +26,7 @@ version = "${libs.versions.modVersion.get()}+${libs.versions.minecraft.get()}"
 
 dependencies {
 	minecraft(libs.minecraft)
-	mappings("net.fabricmc:yarn:${libs.versions.yarnMappings.get()}:v2") // Gradle version catalogue doesn't like the :v2 suffix
+	mappings(variantOf(libs.yarn) { classifier("v2") })
 	modImplementation(libs.fabricLoader)
 
 	modImplementation(libs.fabricApi)
@@ -31,7 +34,12 @@ dependencies {
 	modImplementation(libs.yacl)
 	modImplementation(libs.modMenu)
 	include(modImplementation(libs.rimelib.get())!!) // Loom doesn't like `Provider` types, so we have to `.get()` it
-	include(implementation(libs.pods4k.get())!!)
+	api(libs.pods4k)
+
+	compileOnly(libs.init.annotation)
+	compileOnly(libs.config.annotation)
+	ksp(libs.init.processor)
+	ksp(libs.config.processor)
 }
 
 tasks {
@@ -42,7 +50,8 @@ tasks {
 			"loader_version" to libs.versions.fabricLoader.get(),
 			"fabric_kotlin_version" to libs.versions.fabricLanguageKotlin.get(),
 			"modmenu_version" to libs.versions.modMenu.get(),
-			"yacl_version" to libs.versions.yacl.get()
+			"yacl_version" to libs.versions.yacl.get(),
+			"rimelib_version" to libs.versions.rimelib.get(),
 		)
 		inputs.properties(props)
 		filesMatching("fabric.mod.json") {
@@ -51,11 +60,14 @@ tasks {
 	}
 	jar {
 		from("LICENSE") {
-			rename { "${it}_${base.archivesName.get()}"}
+			rename { "${it}_${base.archivesName.get()}" }
 		}
 	}
 }
 
 kotlin {
 	jvmToolchain(21)
+	compilerOptions {
+		freeCompilerArgs.add("-Xcontext-parameters")
+	}
 }

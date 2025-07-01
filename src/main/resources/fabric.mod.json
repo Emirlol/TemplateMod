@@ -10,11 +10,11 @@
 	"entrypoints": {
 		"client": [
 			{
-				"value": "me.rime.templatemod.TemplateMod::init",
+				"value": "me.ancientri.templatemod.TemplateMod::init",
 				"adapter": "kotlin"
 			}
 		],
-		"modmenu": [ "me.rime.templatemod.modmenu.ModMenuApiImpl" ]
+		"modmenu": [ "me.ancientri.templatemod.modmenu.ModMenuApiImpl" ]
 	},
 	"mixins": [
 		"templatemod.mixins.json"
@@ -24,7 +24,8 @@
 		"fabric-api": "*",
 		"minecraft": ">=${minecraft_version}",
 		"fabric-language-kotlin": ">=${fabric_kotlin_version}",
-		"yet_another_config_lib_v3": ">=${yacl_version}"
+		"yet_another_config_lib_v3": ">=${yacl_version}",
+		"rimelib": ">=${rimelib_version}"
 	},
 	"suggests": {
 		"modmenu": ">=${modmenu_version}"

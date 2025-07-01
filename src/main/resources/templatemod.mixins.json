@@ -1,7 +1,7 @@
 {
 	"required": true,
 	"minVersion": "0.8",
-	"package": "me.rime.templatemod.mixins",
+	"package": "me.ancientri.templatemod.mixins",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
 		"ExampleMixin"
