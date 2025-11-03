@@ -17,6 +17,18 @@ import java.nio.file.Path
 import kotlin.reflect.KMutableProperty
 
 object ConfigHandler : JsonCodecConfigManager<Config, ConfigBuilder>() {
+	override val codec: Codec<Config>
+		get() = Config.CODEC
+
+	override val configPath: Path = FabricLoader.getInstance().configDir.resolve(TemplateMod.NAMESPACE).resolve("config.json")
+
+	override val default: Config
+		get() = Config()
+
+	override val logger: Logger = TemplateMod.loggerFactory.createLogger(this)
+
+	override fun builder(config: Config): ConfigBuilder = ConfigBuilder(config)
+
 	fun generateScreen(parent: Screen?): Screen = YetAnotherConfigLib(TemplateMod.NAMESPACE) {
 		with(builder(config)) {
 			save { saveConfig(build()) }
@@ -51,16 +63,6 @@ object ConfigHandler : JsonCodecConfigManager<Config, ConfigBuilder>() {
 			}
 		}
 	}.generateScreen(parent)
-
-	override val codec: Codec<Config>
-		get() = Config.CODEC
-
-	override val configPath: Path = FabricLoader.getInstance().configDir.resolve(TemplateMod.NAMESPACE).resolve("config.json")
-	override val default: Config
-		get() = Config()
-	override val logger: Logger = TemplateMod.loggerFactory.createLogger(this)
-
-	override fun builder(config: Config): ConfigBuilder = ConfigBuilder(config)
 
 	context(config: ConfigBuilder)
 	fun <V> binding(property: KMutableProperty<V>): Binding<V> {
