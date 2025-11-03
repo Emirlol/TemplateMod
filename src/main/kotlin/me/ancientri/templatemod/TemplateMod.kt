@@ -37,6 +37,7 @@ object TemplateMod {
 
 	const val NAME = "Template Mod"
 	const val NAMESPACE = "templatemod"
-	val KEY_EXAMPLE = KeyBinding("key.templatemod.example", InputUtil.GLFW_KEY_G, "category.templatemod.example")
+	val KEY_CATEGORY = KeyBinding.Category(Identifier.of(NAMESPACE, "example"))
+	val KEY_EXAMPLE = KeyBinding("key.templatemod.example", InputUtil.GLFW_KEY_G, KEY_CATEGORY)
 	val loggerFactory = LoggerFactory(NAMESPACE)
 }
