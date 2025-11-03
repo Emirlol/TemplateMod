@@ -69,6 +69,7 @@ dependencies {
 	modImplementation(libs.yacl)
 	modImplementation(libs.modMenu)
 	include(modImplementation(libs.rimelib.get())!!) // Loom doesn't like `Provider` types, so we have to `.get()` it
+	include(modImplementation(libs.keybindings.get())!!)
 	api(libs.pods4k)
 
 	compileOnly(libs.init.annotation)

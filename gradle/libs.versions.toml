@@ -19,6 +19,7 @@ yacl = "3.8.0+1.21.9-fabric" # https://modrinth.com/mod/yacl/versions
 pods4k = "0.7.0" # https://github.com/daniel-rusu/pods4k/releases
 rimelib = "2.3.4+1.21.10" # https://modrinth.com/mod/rimelib/versions
 
+keybindings = "1.0.0"
 config = "1.0.2"
 init = "1.0.1"
 
@@ -32,6 +33,7 @@ modMenu = { module = "com.terraformersmc:modmenu", version.ref = "modMenu" }
 yacl = { module = "dev.isxander:yet-another-config-lib", version.ref = "yacl" }
 rimelib = { module = "me.ancientri:rimelib", version.ref = "rimelib" }
 pods4k = { module = "com.danrusu.pods4k:pods4k", version.ref = "pods4k" }
+keybindings = { module = "me.ancientri:keybinding-events", version.ref = "keybindings" }
 
 init-processor = { module = "me.ancientri.symbols:init-processor", version.ref = "init" }
 init-annotation = { module = "me.ancientri.symbols:init-annotation", version.ref = "init" }
