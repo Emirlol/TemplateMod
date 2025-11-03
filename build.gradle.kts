@@ -21,8 +21,10 @@ repositories {
 
 val modName = property("mod_name") as String
 val modId = property("mod_id") as String
+val modVersion = property("mod_version") as String
+val minecraftVersion = libs.versions.minecraft.get()
 group = property("maven_group") as String
-version = "${libs.versions.modVersion.get()}+${libs.versions.minecraft.get()}"
+version = "$modVersion+$minecraftVersion"
 
 dependencies {
 	minecraft(libs.minecraft)
@@ -46,7 +48,7 @@ tasks {
 	processResources {
 		val props = mapOf(
 			"version" to version,
-			"minecraft_version" to libs.versions.minecraft.get(),
+			"minecraft_version" to minecraftVersion,
 			"loader_version" to libs.versions.fabricLoader.get(),
 			"fabric_kotlin_version" to libs.versions.fabricLanguageKotlin.get(),
 			"modmenu_version" to libs.versions.modMenu.get(),
