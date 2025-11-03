@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
 	alias(libs.plugins.loom)
 	alias(libs.plugins.kotlin)
@@ -8,14 +10,45 @@ plugins {
 
 repositories {
 	mavenCentral()
-	maven("https://maven.isxander.dev/releases") {
-		name = "Xander Maven"
+	exclusiveContent {
+		forRepository {
+			maven("https://maven.isxander.dev/releases") { name = "Xander Maven" }
+		}
+		filter {
+			includeGroupAndSubgroups("dev.isxander")
+			includeGroupAndSubgroups("org.quiltmc")
+		}
 	}
-	maven("https://maven.terraformersmc.com/releases") {
-		name = "Terraformers"
+	exclusiveContent {
+		forRepository {
+			maven("https://maven.terraformersmc.com/releases") { name = "Terraformers" }
+		}
+		filter {
+			includeGroupAndSubgroups("com.terraformersmc")
+		}
 	}
-	maven("https://ancientri.me/maven/releases") {
-		name = "AncientRime"
+	exclusiveContent {
+		forRepositories(
+			maven("https://ancientri.me/maven/snapshots") {
+				name = "AncientRimeSnapshots"
+				mavenContent { snapshotsOnly() }
+			},
+			maven("https://ancientri.me/maven/releases") {
+				name = "AncientRimeReleases"
+				mavenContent { releasesOnly() }
+			}
+		)
+		filter {
+			includeGroupAndSubgroups("me.ancientri")
+		}
+	}
+	exclusiveContent {
+		forRepository {
+			maven("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1") { name = "DevAuth" }
+		}
+		filter {
+			includeGroupAndSubgroups("me.djtheredstoner")
+		}
 	}
 }
 
