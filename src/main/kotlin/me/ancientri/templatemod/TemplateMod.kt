@@ -8,11 +8,12 @@ import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallba
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
 import net.minecraft.client.option.KeyBinding
 import net.minecraft.client.util.InputUtil
+import net.minecraft.util.Identifier
 
 object TemplateMod {
 	@Deprecated("This method will be called by the fabric loader, don't call it manually.", level = DeprecationLevel.ERROR)
 	fun init() {
-		ConfigHandler // Initialize the config handler
+		ConfigHandler.init() // Initialize the config handler
 		ClientCommandRegistrationCallback.EVENT.register(NAMESPACE) {
 			literal("config") {
 				executes {
@@ -39,5 +40,5 @@ object TemplateMod {
 	const val NAMESPACE = "templatemod"
 	val KEY_CATEGORY = KeyBinding.Category(Identifier.of(NAMESPACE, "example"))
 	val KEY_EXAMPLE = KeyBinding("key.templatemod.example", InputUtil.GLFW_KEY_G, KEY_CATEGORY)
-	val loggerFactory = LoggerFactory(NAMESPACE)
+	val loggerFactory = LoggerFactory(NAME)
 }
