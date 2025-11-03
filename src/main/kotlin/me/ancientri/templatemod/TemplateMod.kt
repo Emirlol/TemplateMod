@@ -33,7 +33,7 @@ object TemplateMod {
 	private fun createKeybinds() {
 		listOf(
 			KEY_EXAMPLE
-		).forEach { KeyBindingHelper.registerKeyBinding(it) }
+		).forEach(KeyBindingHelper::registerKeyBinding)
 	}
 
 	const val NAME = "Template Mod"
